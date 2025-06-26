@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.List" %>
-<%@ page import="oop_v2_FM_Employee.employee" %>
+<%@ page import="oop_v2_FM_Employee.Employee" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -267,11 +267,11 @@
     <div class="user-details">
         <%
             
-            List<employee> empDetails = (List<employee>) session.getAttribute("empDetails");
+            List<Employee> empDetails = (List<Employee>) session.getAttribute("empDetails");
             
           
             if (empDetails != null && !empDetails.isEmpty()) {
-                employee emp = empDetails.get(0); 
+                Employee emp = empDetails.get(0); 
         %>
                 <p><%= emp.getEmpName() %> (<%= emp.getEmpID() %>)</p>
         <%
@@ -312,14 +312,14 @@
                 
                 <%
 	    // Get the SalaryDetails list from the request attribute
-	    List<employee> EmployeeDetails = (List<employee>) request.getAttribute("EmpDetails");
+	    List<Employee> EmployeeDetails = (List<Employee>) request.getAttribute("EmpDetails");
 	    
 	    if (EmployeeDetails != null && !EmployeeDetails.isEmpty()) {
 	    	
 	    	
 	        // Loop through the salaryDetails list
 	        for (int i = 0; i < EmployeeDetails.size(); i++) {
-	        	 employee emp = EmployeeDetails.get(i); 
+	        	 Employee emp = EmployeeDetails.get(i); 
 	        	
 	%>
 	

@@ -21,16 +21,16 @@ public class SalaryDB {
 	
 	
 	//validateLogin
-	public static List<employee> validatelogin(String username,String password ){
+	public static List<Employee> validatelogin(String username,String password ){
 		
-		ArrayList<employee> emp = new ArrayList();
+		ArrayList<Employee> emp = new ArrayList();
 		
 		
 		try {
 			con = DBConnect.getConnection();
 			stmt = con.createStatement();
 			
-			String sql ="select * from employee where Username='"+username+"'and Password = '"+password+"'";
+			String sql ="select * from Employee where Username='"+username+"'and Password = '"+password+"'";
 			rs = stmt.executeQuery(sql);
 			
 			if(rs.next()) {
@@ -49,7 +49,7 @@ public class SalaryDB {
 				
 				
 				
-				employee em = new employee(EmpID,EmpName,DOB,Gender,Email,Contact,Department,Position,Address_L1,Address_L2,Username,Password);
+				Employee em = new Employee(EmpID,EmpName,DOB,Gender,Email,Contact,Department,Position,Address_L1,Address_L2,Username,Password);
 				emp.add(em);
 			}
 			
@@ -294,7 +294,7 @@ public class SalaryDB {
 	        	 
 	        	 con = DBConnect.getConnection();
 	             stmt = con.createStatement();
-	             String sql = "UPDATE employee SET EmpName='"+EmpName+"', DOB='"+DOB+"', Gender='"+Gender+"', Email='"+Email+"', Contact='"+Contact+"', Department='"+Department+"', Position='"+Position+"', " 
+	             String sql = "UPDATE Employee SET EmpName='"+EmpName+"', DOB='"+DOB+"', Gender='"+Gender+"', Email='"+Email+"', Contact='"+Contact+"', Department='"+Department+"', Position='"+Position+"', " 
 	                     + "Address_L1='"+Address_L1+"', Address_L2='"+Address_L2+"', Username='"+Username+"', Password='"+Password+"' WHERE EmpID='"+EmpID+"'";
 
 	 			int rs = stmt.executeUpdate(sql);
@@ -317,13 +317,13 @@ public class SalaryDB {
     	
     	
     	//Read login
-	public static List<employee> getLoginDetails(String EmpId){
-		ArrayList<employee> emp2 = new ArrayList<>();
+	public static List<Employee> getLoginDetails(String EmpId){
+		ArrayList<Employee> emp2 = new ArrayList<>();
 		
 		try {
 			con = DBConnect.getConnection();
             stmt = con.createStatement();
-            String sql = "select * from employee where EmpID='"+EmpId+"'";
+            String sql = "select * from Employee where EmpID='"+EmpId+"'";
              rs = stmt.executeQuery(sql);
             
              while(rs.next()) {
@@ -342,7 +342,7 @@ public class SalaryDB {
 				
 				
 				
-				employee em2 = new employee(EmpID,EmpName,DOB,Gender,Email,Contact,Department,Position,Address_L1,Address_L2,Username,Password);
+				Employee em2 = new Employee(EmpID,EmpName,DOB,Gender,Email,Contact,Department,Position,Address_L1,Address_L2,Username,Password);
  				emp2.add(em2);
              }
 			
@@ -356,13 +356,13 @@ public class SalaryDB {
 	}
 	
 	//View more read
-	public static List<employee> getotherdetails(String EmpId){
-		ArrayList<employee> Emp3 = new ArrayList<>();
+	public static List<Employee> getotherdetails(String EmpId){
+		ArrayList<Employee> Emp3 = new ArrayList<>();
 		
 		try {
 			con = DBConnect.getConnection();
             stmt = con.createStatement();
-            String sql = "select * from employee where EmpID='"+EmpId+"'";
+            String sql = "select * from Employee where EmpID='"+EmpId+"'";
              rs = stmt.executeQuery(sql);
             
              while(rs.next()) {
@@ -381,7 +381,7 @@ public class SalaryDB {
 				
 				
 				
-				employee em3 = new employee(EmpID,EmpName,DOB,Gender,Email,Contact,Department,Position,Address_L1,Address_L2,Username,Password);
+				Employee em3 = new Employee(EmpID,EmpName,DOB,Gender,Email,Contact,Department,Position,Address_L1,Address_L2,Username,Password);
  				Emp3.add(em3);
              }
 			
@@ -403,7 +403,7 @@ public class SalaryDB {
 	        
 	        try {
 	            con = DBConnect.getConnection();
-	            String sql = "SELECT e.EmpID, e.Department, e.Position, bs.BasicSalary FROM employee e JOIN basicsalary bs ON e.EmpID = bs.EmpID WHERE e.EmpID = ?";
+	            String sql = "SELECT e.EmpID, e.Department, e.Position, bs.BasicSalary FROM Employee e JOIN basicsalary bs ON e.EmpID = bs.EmpID WHERE e.EmpID = ?";
 	            pstmt = con.prepareStatement(sql);
 	            pstmt.setString(1, EmpID);
 	            rs = pstmt.executeQuery();
@@ -637,5 +637,5 @@ public class SalaryDB {
     	
     	
     }
-    
+
 

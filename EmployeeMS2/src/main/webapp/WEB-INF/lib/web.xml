@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001.XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+       <servlet-name>ProjectInsert</servlet-name>
+       <servlet-class>Controller.ProjectInsert</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>ProjectInsert</servlet-name>
+       <url-pattern>/insert</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UpdateProject</servlet-name>
+        <servlet-class>Controller.UpdateProject</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>UpdateProject</servlet-name>
+         <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DeleteProject</servlet-name>
+        <servlet-class>Controller.DeleteProject</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>DeleteProject</servlet-name>
+         <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    
+
+
+</web-app>         

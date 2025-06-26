@@ -25,9 +25,9 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
 		
 		try {
-			List<employee> empDetails = SalaryDB.validatelogin(username,password);
+			List<Employee> empDetails = SalaryDB.validatelogin(username,password);
 			if (empDetails != null && !empDetails.isEmpty()) {
-	            employee emp = empDetails.get(0); 
+	            Employee emp = empDetails.get(0); 
 	            String Position = emp.getPosition();
 			session.setAttribute("empDetails",empDetails);
 			
@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("C_EmployeeHome.jsp");
                 dispatcher.forward(request, response);
             }  else if (Position.equalsIgnoreCase("Manager")) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("A_AllProjectDetails");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("AllProjectDetails");
                 dispatcher.forward(request, response);
             }
             
